@@ -1,0 +1,10 @@
+<h1>Editing entry</h1>
+
+<%= render "form", entry: @entry %>
+
+<br>
+
+<div>
+  <%= link_to "Show this entry", blog_entry_path(@blog, @entry) %> |
+  <%= link_to "Back to entries", blog_entries_path(@blog) %>
+</div>
