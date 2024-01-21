@@ -3,9 +3,9 @@ class EntriesController < ApplicationController
   before_action :set_entry, only: %i[ show edit update destroy ]
 
   # GET /entries or /entries.json
-  def index
-    @entries = @blog.entries
-  end
+  # def index
+  #   @entries = @blog.entries
+  # end
 
   # GET /entries/1 or /entries/1.json
   def show
