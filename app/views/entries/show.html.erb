@@ -8,3 +8,23 @@
 
   <%= button_to "Destroy this entry", blog_entry_path(@blog, @entry), method: :delete %>
 </div>
+
+<div>
+  <h2>Comments</h2>
+  <% @entry.comments.each do |comment| %>
+    <p style="<%= 'color: grey;' if comment.status == 'unapproved' %>"><%= comment.content %></p>
+
+    <% if comment.status == 'unapproved' %>
+      <%= button_to 'Change to Approve', approve_blog_entry_comment_path(@entry.blog, @entry, comment), method: :patch, form_class: "inline" %>
+    <% end %>
+  <% end %>  
+
+  <h3>Add a comment</h3>
+  <%= form_with(model: [@entry.blog, @entry, Comment.new], local: true) do |form| %>
+    <div>
+      <%= form.label :content %>
+      <%= form.text_area :content %>
+    </div>
+    <%= form.submit "Post Comment" %>
+  <% end %>
+</div>
