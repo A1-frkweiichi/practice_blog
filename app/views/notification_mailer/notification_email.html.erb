@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p>
+      新しいコメントが投稿されました。
+      <p>Blog: <%= @blog.title %></p>
+      <p>Entry: <%= @entry.title %></p>
+      <p>Comment: <%= @comment.content %></p>
+      <br>
+    </p>
+    <p>
+      このサイトにログインするには、<%= @url %>をクリックしてください。
+    </p>
+  </body>
+</html>
