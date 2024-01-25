@@ -62,6 +62,8 @@ group :development do
   gem "error_highlight", ">= 0.4.0", platforms: [:ruby]
 
   gem 'letter_opener'
+
+  gem "rspec-rails"
 end
 
 group :test do
