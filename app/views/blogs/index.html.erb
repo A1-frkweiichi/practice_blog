@@ -1,6 +1,7 @@
 <p style="color: green"><%= notice %></p>
 
 <h1>Blogs</h1>
+<%= link_to 'CSVダウンロード', blogs_path(format: :csv) %>
 
 <div id="blogs">
   <% @blogs.each do |blog| %>

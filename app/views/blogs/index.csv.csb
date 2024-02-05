@@ -1,0 +1,5 @@
+csv.items = @entries
+
+csv.cols.add('ID') { |entry| entry.id }
+csv.cols.add('タイトル') { |entry| entry.title }
+csv.cols.add('本文') { |entry| entry.body }

@@ -4,6 +4,12 @@ class BlogsController < ApplicationController
   # GET /blogs or /blogs.json
   def index
     @blogs = Blog.all
+    @entries = Entry.all
+
+    respond_to do |format|
+      format.html
+      format.csv { send_data entries_to_csv(@entries), filename: "entries.csv" }
+    end
   end
 
   # GET /blogs/1 or /blogs/1.json
@@ -68,5 +74,14 @@ class BlogsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def blog_params
       params.require(:blog).permit(:title)
+    end
+
+    def entries_to_csv(entries)
+      CSV.generate(headers: true) do |csv|
+        csv << ['ID', 'タイトル', '本文']
+        entries.each do |entry|
+          csv << [entry.id, entry.title, entry.body]
+        end
+      end
     end
 end
